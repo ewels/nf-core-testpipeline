@@ -27,8 +27,4 @@ jobs:
               "outdir": "${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}"
             }
           # List of config profiles to use - JSON array as a string
-          profiles: |
-            [
-              "test",
-              "aws_tower"
-            ]
+          profiles: '[ "test", "aws_tower" ]'
