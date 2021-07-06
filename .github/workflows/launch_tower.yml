@@ -1,4 +1,4 @@
-name: Run pipeline using Nextflow Tower
+name: Launch on Tower
 
 # Manually trigger the action with a button in GitHub
 # Alternatively, trigger on release / push etc.
@@ -12,8 +12,7 @@ jobs:
     if: github.repository == 'username/repo'
     runs-on: ubuntu-latest
     steps:
-      - name: Launch workflow via tower
-        uses: ewels/tower-action
+      - uses: ewels/tower-action
         # Use repository secrets for sensitive fields
         with:
           workspace_id: ${{ secrets.TOWER_WORKSPACE_ID }}
@@ -22,7 +21,10 @@ jobs:
           pipeline: ${{ github.repository }}
           revision: ${{ github.sha }}
           workdir: ${{ secrets.AWS_S3_BUCKET }}/work/${{ github.sha }}
-          # Set any custom pipeline params here - JSON object
-          parameters: "{ outdir: ${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }} }"
-          # List of config profiles to use - JSON list
+          # Set any custom pipeline params here - JSON object as string
+          parameters: |
+            {
+                outdir: ${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}
+            }
+          # List of config profiles to use - JSON list as string
           profiles: "[ test, aws_tower ]"
