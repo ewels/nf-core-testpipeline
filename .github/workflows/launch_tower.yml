@@ -19,7 +19,7 @@ jobs:
           bearer_token: ${{ secrets.TOWER_BEARER_TOKEN }}
           compute_env: ${{ secrets.TOWER_COMPUTE_ENV }}
           pipeline: ${{ github.repository }}
-          revision: ${{ github.sha }}
+          # revision: ${{ github.sha }}
           workdir: ${{ secrets.AWS_S3_BUCKET }}/work/${{ github.sha }}
 #          # Set any custom pipeline params here - JSON object as a string
 #          parameters: |
