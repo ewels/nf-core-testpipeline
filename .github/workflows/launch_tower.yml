@@ -15,16 +15,16 @@ jobs:
       - uses: ewels/tower-action@master
         # Use repository secrets for sensitive fields
         with:
-          workspace_id: ${{ secrets.TOWER_WORKSPACE_ID }}
+          # workspace_id: ${{ secrets.TOWER_WORKSPACE_ID }}
           bearer_token: ${{ secrets.TOWER_BEARER_TOKEN }}
-          compute_env: ${{ secrets.TOWER_COMPUTE_ENV }}
+          # compute_env: ${{ secrets.TOWER_COMPUTE_ENV }}
           pipeline: ${{ github.repository }}
-          revision: ${{ github.sha }}
+          # revision: ${{ github.sha }}
           workdir: ${{ secrets.AWS_S3_BUCKET }}/work/${{ github.sha }}
           # Set any custom pipeline params here - JSON object as a string
-          parameters: |
-            {
-              "outdir": "${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}"
-            }
-          # List of config profiles to use - JSON array as a string
-          profiles: '[ "test", "aws_tower" ]'
+#          parameters: |
+#            {
+#              "outdir": "${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}"
+#            }
+#          # List of config profiles to use - JSON array as a string
+#          profiles: '[ "test", "aws_tower" ]'
