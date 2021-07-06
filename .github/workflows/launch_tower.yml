@@ -12,7 +12,7 @@ jobs:
     if: github.repository == 'username/repo'
     runs-on: ubuntu-latest
     steps:
-      - uses: ewels/tower-action
+      - uses: ewels/tower-action@master
         # Use repository secrets for sensitive fields
         with:
           workspace_id: ${{ secrets.TOWER_WORKSPACE_ID }}
