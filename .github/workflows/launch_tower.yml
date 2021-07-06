@@ -9,7 +9,7 @@ jobs:
   run-tower:
     name: Launch on Nextflow Tower
     # Don't run on forked repos
-    if: github.repository == 'username/repo'
+    if: github.repository == 'ewels/nf-core-testpipeline'
     runs-on: ubuntu-latest
     steps:
       - uses: ewels/tower-action@master
