@@ -23,7 +23,7 @@ jobs:
           workdir: ${{ secrets.AWS_S3_BUCKET }}/work/${{ github.sha }}
           # Set any custom pipeline params here
           # JSON object as single-line string. Escape double quotes!
-          parameters: '{ \"outdir\": \"${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}\" }'
+          parameters: 'outdir: ${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}'
           params_string: |
             {
               "outdir": "${{ secrets.AWS_S3_BUCKET }}/results/${{ github.sha }}"
